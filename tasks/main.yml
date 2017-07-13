@@ -1,0 +1,22 @@
+---
+# tasks file for apprenda
+- name: Perform operations involving Apprenda Users
+  apprenda_users:
+    apprenda_url: "{{ apprenda_url }}"
+    username: "{{ username }}"
+    password: "{{ password }}"
+    tenant: "{{ tenant }}"
+    action: "{{ action }}"
+    app_alias: "{{ app_alias | default(None)}}"
+    version_alias: "{{ version_alias | default(None)}}"
+    email: "{{ email | default(None)}}"
+    firstName: "{{ firstName | default(None)}}"
+    lastName: "{{ lastName | default(None) }}"
+    roleName: "{{ roleName | default(None) }}"
+    roleDescription: "{{ roleDescription | default(None) }}"
+    planName: "{{ planName | default(None) }}"
+    numberOfSubs: "{{ numberOfSubs | default(None) }}"
+  register: output
+- name: Display Result
+  debug:
+    var: output
